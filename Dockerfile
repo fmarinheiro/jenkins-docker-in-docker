@@ -5,6 +5,22 @@ ARG DOCKER_PACKAGE_VERSION=5:18.09.5~3-0~debian-stretch
 # Make sure it matches as much as possible the version running on the host
 ENV DOCKER_DEBIAN_PACKAGE $DOCKER_PACKAGE_VERSION
 
+RUN /usr/local/bin/install-plugins.sh \
+job-dsl \
+configuration-as-code \
+workflow-cps-global-lib \
+cloudbees-folder \
+jira \
+pipeline-model-definition \
+locale \
+git \
+docker-commons \
+cloudbees-bitbucket-branch-source \
+rebuild \
+git-parameter \
+envinject \
+ansicolor
+
 USER root
 
 RUN apt-get update -qq \
