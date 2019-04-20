@@ -16,7 +16,7 @@ RUN add-apt-repository \
    stable"
 
 RUN apt-get update  -qq \
-    && apt-get install docker-ce=5:18.09.5~3-0~debian-stretch -y
+    && apt-get install docker-ce=${DOCKER_DEBIAN_PACKAGE} -y
 
 COPY ./bin/dockerGroup.sh /dockerGroup.sh
 RUN chmod +x /dockerGroup.sh
