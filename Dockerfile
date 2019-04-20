@@ -18,13 +18,8 @@ RUN add-apt-repository \
 RUN apt-get update  -qq \
     && apt-get install docker-ce=5:18.09.5~3-0~debian-stretch -y
 
-RUN usermod -aG docker jenkins
-
-RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
 COPY ./bin/dockerGroup.sh /dockerGroup.sh
 RUN chmod +x /dockerGroup.sh
 
-USER jenkins
 
-ENTRYPOINT /dockerGroup.sh && /sbin/tini -- /usr/local/bin/jenkins.sh
+ENTRYPOINT /dockerGroup.sh && su -c "/sbin/tini -- /usr/local/bin/jenkins.sh" jenkins

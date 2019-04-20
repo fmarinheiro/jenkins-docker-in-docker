@@ -5,7 +5,7 @@ Jenkins docker image with docker ce installed, fixes jenkins user docker.sock ac
 ### Usage 
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock <image>
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock fmarinheiro/jenkins-docker-in-docker:latest
 
 ```
 

@@ -1,10 +1,10 @@
 #! /bin/bash
 
-NEW_GROUP_FOR_DOCKER=docker_alt
+DOCKER_GROUP=docker
 JENKINS_USER=jenkins
-
 DOCKER_SOCK_GROUP=$(ls -l /var/run/docker.sock  | awk '{print $4}')
 
-sudo sh -c "getent group $DOCKER_SOCK_GROUP || groupadd -g $DOCKER_SOCK_GROUP $NEW_GROUP_FOR_DOCKER"
-
-sudo usermod -aG $NEW_GROUP_FOR_DOCKER $JENKINS_USER
+sudo groupdel $DOCKER_GROUP
+sudo groupadd -g $DOCKER_SOCK_GROUP $DOCKER_GROUP
+sudo usermod -aG $DOCKER_GROUP $JENKINS_USER
+sudo passwd -d jenkins
