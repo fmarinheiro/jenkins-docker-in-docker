@@ -1,7 +1,9 @@
 FROM jenkins/jenkins:lts
 
+ARG DOCKER_PACKAGE_VERSION=5:18.09.5~3-0~debian-stretch
+
 # Make sure it matches as much as possible the version running on the host
-ENV DOCKER_DEBIAN_PACKAGE 5:18.09.5~3-0~debian-stretch
+ENV DOCKER_DEBIAN_PACKAGE $DOCKER_PACKAGE_VERSION
 
 USER root
 
