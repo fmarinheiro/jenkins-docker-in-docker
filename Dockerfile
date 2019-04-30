@@ -14,5 +14,5 @@ cloudbees-bitbucket-branch-source \
 rebuild \
 git-parameter \
 envinject \
-ansicolor
-
+ansicolor \
+kubernetes
